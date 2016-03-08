@@ -17,4 +17,4 @@ Using bass Run: make.bat<br />
 Howto Run:<br />
 I only test with a real PC-Engine using a flash cartridge.<br />
 <br />
-You can use PC-Engine emulators like MAME PCE Driver.
+You can also use PC-Engine emulators like MAME PCE Driver.

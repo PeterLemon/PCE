@@ -1,8 +1,10 @@
 //==================
 // PC-Engine VECTOR
 //==================
-seek($FFFA)
-// VECTOR (6502 Mode)
-dw $0000 // NMI VECTOR     (V-Blank Interrupt)
-dw Start // RESET VECTOR
-dw $0000 // IRQ/BRK VECTOR (Interrupt/Break)
+seek($FFF6)
+// VECTOR (HuC6280 Mode)
+dw $0000 // IRQ2  VECTOR (BRK)
+dw $0000 // IRQ1  VECTOR (VDC)
+dw $0000 // TIMER VECTOR
+dw $0000 // NMI VECTOR
+dw $0000 // RESET VECTOR

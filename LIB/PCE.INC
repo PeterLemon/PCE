@@ -157,3 +157,23 @@ constant UP($10)      // JOYIO: Bit 4 - Joypad Direction Up                     
 constant RIGHT($20)   // JOYIO: Bit 5 - Joypad Direction Right                                                  1Bit/R
 constant DOWN($40)    // JOYIO: Bit 6 - Joypad Direction Down                                                   1Bit/R
 constant LEFT($80)    // JOYIO: Bit 7 - Joypad Direction Left                                                   1Bit/R
+
+// PC-Engine Initialisation
+macro PCE_INIT() {
+  // VDC: Set VRAM Write Address To Zero
+  st0 #VDC_MAWR // VDC: Set VDC Address To Set Memory Address Write (VRAM Write Address) (MAWR)
+  st1 #0        // VDC: Data = 0 (Lo Byte)
+  st2 #0        // VDC: Data = 0 (Hi Byte)
+
+  // VDC: Clear 65536 VRAM Bytes To Zero
+  st0 #VDC_VWR // VDC: Set VDC Address To VRAM Data Write To Control Register (VWR)
+  ldx #0
+  ldy #128
+  -
+    st1 #0 // VDC: Data = 0 (Lo Byte)
+    st2 #0 // VDC: Data = 0 (Hi Byte)
+    dex
+    bne -
+    dey
+    bne -
+}

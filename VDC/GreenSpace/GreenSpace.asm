@@ -34,7 +34,7 @@ seek($E000); Start:
   // VDC: Clear 65536 VRAM Bytes To Zero
   st0 #VDC_VWR // VDC: Set VDC Address To VRAM Data Write To Control Register (VWR)
   ldx #0
-  ldy #0
+  ldy #128
   LoopVRAM:
     st1 #0 // VDC: Data = 0 (Lo Byte)
     st2 #0 // VDC: Data = 0 (Hi Byte)

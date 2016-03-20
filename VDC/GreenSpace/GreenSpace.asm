@@ -26,6 +26,24 @@ seek($E000); Start:
   lda #%00000001 // A = %00000001
   sta (6<<13)+VCE_CTRW+1 // MPR6:VCE_CTRW+1 = A ($FF:0405) (Hi Byte)
 
+  // VDC: Set VRAM Write Address To Zero
+  st0 #VDC_MAWR // VDC: Set VDC Address To Set Memory Address Write (VRAM Write Address) (MAWR)
+  st1 #0        // VDC: Data = 0 (Lo Byte)
+  st2 #0        // VDC: Data = 0 (Hi Byte)
+
+  // VDC: Clear 65536 VRAM Bytes To Zero
+  st0 #VDC_VWR // VDC: Set VDC Address To VRAM Data Write To Control Register (VWR)
+  ldx #0
+  ldy #0
+  LoopVRAM:
+    st1 #0 // VDC: Data = 0 (Lo Byte)
+    st2 #0 // VDC: Data = 0 (Hi Byte)
+    dex
+    bne LoopVRAM
+    dey
+    bne LoopVRAM
+
+  // VDC: Turn On BG Screen
   st0 #VDC_CR // VDC: Set VDC Address To Control Register (CR)
   st1 #VDC_BB // VDC: Data = BB Flag (Background Enable/Disable) (Lo Byte)
   st2 #0      // VDC: Data = 0 (Hi Byte)

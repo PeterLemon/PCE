@@ -125,8 +125,8 @@ constant VDC_VCR($0E)      // VDC VCR - Vertical Display Ending Postition Regist
 constant VDC_DCR($0F)      // VDC DCR - DMA Control Register                                                       2B/RW
 constant VDC_DSC($01)      // VDC DCR: Bit 0 - DSC VRAM & Sprite Attribute Table (Interrupt Enable/Disable)      1Bit/RW
 constant VDC_DVC($02)      // VDC DCR: Bit 1 - DVC VRAM To VRAM Transfer (Interrupt Enable/Disable)              1Bit/RW
-constant VDC_SID($04)      // VDC DCR: Bit 2 - SID VRAM To VRAM Source Increment/Decrement (Enable/Disable)      1Bit/RW
-constant VDC_DID($08)      // VDC DCR: Bit 3 - DID VRAM To VRAM Destination Increment/Decrement (Enable/Disable) 1Bit/RW
+constant VDC_SID($04)      // VDC DCR: Bit 2 - SID VRAM To VRAM Source Increment/Decrement (1/0)                 1Bit/RW
+constant VDC_DID($08)      // VDC DCR: Bit 3 - DID VRAM To VRAM Destination Increment/Decrement (1/0)            1Bit/RW
                            // VDC DCR: Bit 4 - Unused                                                            1Bit/RW
 constant VDC_DSR($20)      // VDC DCR: Bit 5 - DSR VRAM & Sprite Attribute Table Repetition (Enable/Disable)     1Bit/RW
                            // VDC DCR: Bit 6..15 - Unused                                                       10Bit/RW

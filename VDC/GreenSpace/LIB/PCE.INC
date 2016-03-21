@@ -184,12 +184,12 @@ constant LEFT($80)    // JOYIO: Bit 7 - Joypad Direction Left                   
 // PC-Engine Initialisation
 macro PCE_INIT() {
   // VDC: Set VRAM Write Address To Zero
-  st0 #VDC_MAWR // VDC: Set VDC Address To Set Memory Address Write (VRAM Write Address) (MAWR)
+  st0 #VDC_MAWR // VDC: Set VDC Address To Memory Address Write Register (VRAM Write Address) (MAWR)
   st1 #0        // VDC: Data = 0 (Lo Byte)
   st2 #0        // VDC: Data = 0 (Hi Byte)
 
   // VDC: Clear 65536 VRAM Bytes To Zero
-  st0 #VDC_VWR // VDC: Set VDC Address To VRAM Data Write To Control Register (VWR)
+  st0 #VDC_VWR // VDC: Set VDC Address To VRAM Data Write Register (VWR)
   ldx #0
   ldy #128
   -

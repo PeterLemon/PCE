@@ -202,7 +202,7 @@ constant PSG_LFO1($01)  // PSG Register 9: Bit 0..1 - FM Data Added To Channel 0
 constant PSG_LFO2($02)  // PSG Register 9: Bit 0..1 - FM Data << 4 Then Added To The Frequency (LFO Control) %10 2Bit/W
 constant PSG_LFO3($03)  // PSG Register 9: Bit 0..1 - FM Data << 8 Then Added To The Frequency (LFO Control) %11 2Bit/W
                         // PSG Register 9: Bit 2..6 - Unused                                                     5Bit/W
-constant PSG_LFO($80)   // PSG Register 9: Bit    7 - LFO Trigger Enable/Disable (1/0)                           1Bit/W
+constant PSG_LFO($80)   // PSG Register 9: Bit    7 - LFO Trigger Enable/Disable (0/1)                           1Bit/W
 
 // 8-Bit I/O Port (Mapped To Segment $FF:XXXX)
 constant JOYIO($1000) // JOYIO - Joypad I/O Port Register                                                          1B/R

@@ -159,17 +159,47 @@ constant VCE_CTRW($0404) // VCE CTRW - Color Table Read/Write Register (BRG333) 
                          // VCE CTRW: Bit  6..8 - Green                                                          3Bit/RW
                          // VCE CTRW: Bit 9..15 - Unused                                                         7Bit/RW
 
-// PSG Registers (Mapped To Segment $FF:XXXX)
-constant PSG_R0($0800) // PSG Register 0                                                                           1B/RW
-constant PSG_R1($0801) // PSG Register 1                                                                           1B/RW
-constant PSG_R2($0802) // PSG Register 2                                                                           1B/RW
-constant PSG_R3($0803) // PSG Register 3                                                                           1B/RW
-constant PSG_R4($0804) // PSG Register 4                                                                           1B/RW
-constant PSG_R5($0805) // PSG Register 5                                                                           1B/RW
-constant PSG_R6($0806) // PSG Register 6                                                                           1B/RW
-constant PSG_R7($0807) // PSG Register 7                                                                           1B/RW
-constant PSG_R8($0808) // PSG Register 8                                                                           1B/RW
-constant PSG_R9($0809) // PSG Register 9                                                                           1B/RW
+// PSG Registers (Mapped To Segment $FF:XXXX) (Write Only)
+constant PSG_R0($0800) // PSG Register 0 - Channel Select (Selects Channel For Use With PSG Registers R2..R9)      1B/W
+                       // PSG Register 0: Bit 0..2 - Channel Number (Only 0..5 Valid)                            3Bit/W
+                       // PSG Register 0: Bit 3..7 - Unused                                                      5Bit/W
+
+constant PSG_R1($0801) // PSG Register 1 - Global Sound Balance (Overall Sound Volume For Mixed Channels)          1B/W
+                       // PSG Register 1: Bit 0..3 - Volume From Right Output                                    4Bit/W
+                       // PSG Register 1: Bit 4..7 - Volume From  Left Output                                    4Bit/W
+
+constant PSG_R2($0802) // PSG Register 2 -  Fine Frequency Adjust (Lower 8-Bits Of 12-Bit Channel Frequency)       1B/W
+                       // PSG Register 2: Bit 0..7 - Fine Frequency Adjust                                       8Bit/W
+
+constant PSG_R3($0803) // PSG Register 3 - Rough Frequency Adjust (Upper 4-Bits Of 12-Bit Channel Frequency)       1B/W
+                       // PSG Register 3: Bit 0..3 - Rough Frequency Adjust                                      4Bit/W
+                       // PSG Register 3: Bit 4..7 - Unused                                                      4Bit/W
+
+constant PSG_R4($0804) // PSG Register 4 - Channel Enable, DDA Enable, Channel Volume                              1B/W
+                       // PSG Register 4: Bit 0..4 - Overall Channel Volume                                      5Bit/W
+                       // PSG Register 4: Bit    5 - Unused                                                      1Bit/W
+                       // PSG Register 4: Bit    6 - DDA Output Enable/Disable (1/0)                             1Bit/W
+                       // PSG Register 4: Bit    7 -    Channel Enable/Disable (1/0)                             1Bit/W
+
+constant PSG_R5($0805) // PSG Register 5 - Channel Balance (Volume Balance Of An Individual Channel)               1B/W
+                       // PSG Register 5: Bit 0..3 - Volume To Right Output                                      4Bit/W
+                       // PSG Register 5: Bit 4..7 - Volume To  Left Output                                      4Bit/W
+
+constant PSG_R6($0806) // PSG Register 6 - Channel Sound Data (5-Bit Unsigned Linear Sample Data)                  1B/W
+                       // PSG Register 6: Bit 0..4 - 5-Bit Unsigned Linear Sample Data                           5Bit/W
+                       // PSG Register 6: Bit 5..7 - Unused                                                      3Bit/W
+
+constant PSG_R7($0807) // PSG Register 7 - Noise Enable, Noise Frequency (Only Effective For Channels 4 & 5)       1B/W
+                       // PSG Register 7: Bit 0..4 - Noise Frequency                                             5Bit/W
+                       // PSG Register 7: Bit 5..6 - Unused                                                      2Bit/W
+                       // PSG Register 7: Bit    7 - Noise Enable/Disable (1/0)
+
+constant PSG_R8($0808) // PSG Register 8 - LFO Frequency (Uses Channel 1 Waveform Buffer As Frequency Modulation)  1B/W
+
+constant PSG_R9($0809) // PSG Register 9 - LFO Trigger, LFO Control                                                1B/W
+                       // PSG Register 9: Bit 0..1 - LFO Control                                                 2Bit/W
+                       // PSG Register 9: Bit 2..6 - Unused                                                      5Bit/W
+                       // PSG Register 9: Bit    7 - LFO Trigger Enable/Disable (1/0)                            1Bit/W
 
 // 8-Bit I/O Port (Mapped To Segment $FF:XXXX)
 constant JOYIO($1000) // JOYIO - Joypad I/O Port Register                                                          1B/R

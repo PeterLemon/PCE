@@ -53,7 +53,7 @@ seek($E000); Start:
   // VDC: Set VRAM Write Address To $0400
   st0 #VDC_MAWR // VDC: Set VDC Address To Memory Address Write Register (VRAM Write Address) (MAWR)
   st1 #$00      // VDC: Data = $00 (Lo Byte)
-  st2 #$04      // VDC: Data = $04 (Hi Byte)  
+  st2 #$04      // VDC: Data = $04 (Hi Byte)
 
   st0 #VDC_VWR // VDC: Set VDC Address To VRAM Data Write Register (VWR)
   tia BGCHR,(6<<13)+VDC_DATAL,3040 // MPR6:VDC_DATAL = SOURCE ($FF:0002) (Lo Byte)
@@ -62,7 +62,7 @@ seek($E000); Start:
   // VDC: Set VRAM Write Address To $012C
   st0 #VDC_MAWR // VDC: Set VDC Address To Memory Address Write Register (VRAM Write Address) (MAWR)
   st1 #$2C      // VDC: Data = $2C (Lo Byte)
-  st2 #$01      // VDC: Data = $01 (Hi Byte) 
+  st2 #$01      // VDC: Data = $01 (Hi Byte)
 
   st0 #VDC_VWR // VDC: Set VDC Address To VRAM Data Write Register (VWR)
   tia HELLOWORLD,(6<<13)+VDC_DATAL,26 // MPR6:VDC_DATAL = SOURCE ($FF:0002) (Lo Byte)

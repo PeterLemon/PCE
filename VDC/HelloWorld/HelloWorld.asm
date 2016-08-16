@@ -9,8 +9,8 @@ macro seek(variable offset) {
 
 // PRG BANK 0 (8KB)
 seek($E000); fill $2000 // Fill Bank 0 With Zero Bytes
-include "LIB\PCE.INC"        // Include PC-Engine Definitions
-include "LIB\PCE_VECTOR.ASM" // Include Vector Table
+include "LIB/PCE.INC"        // Include PC-Engine Definitions
+include "LIB/PCE_VECTOR.ASM" // Include Vector Table
 
 seek($E000); Start:
   PCE_INIT() // Run PC-Engine Initialisation Routine
